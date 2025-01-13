@@ -4,7 +4,7 @@
 		"Id": 33330000,
 		"Address": "0xDFF0222C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -12,7 +12,7 @@
 		"Id": 33330001,
 		"Address": "0xDFF02230",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -20,7 +20,7 @@
 		"Id": 33330002,
 		"Address": "0xDFF02234",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -28,7 +28,7 @@
 		"Id": 33330003,
 		"Address": "0xDFF02238",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -36,7 +36,7 @@
 		"Id": 33330004,
 		"Address": "0xDFF0223C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -44,7 +44,7 @@
 		"Id": 33330005,
 		"Address": "0xDFF02240",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -52,7 +52,7 @@
 		"Id": 33330006,
 		"Address": "0xDFF02244",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -60,7 +60,7 @@
 		"Id": 33330007,
 		"Address": "0xDFF02248",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -68,7 +68,7 @@
 		"Id": 33330008,
 		"Address": "0xDFF0224C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -76,7 +76,7 @@
 		"Id": 33330009,
 		"Address": "0xDFF02250",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -84,7 +84,7 @@
 		"Id": 33330010,
 		"Address": "0xDFF02254",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -92,7 +92,7 @@
 		"Id": 33330011,
 		"Address": "0xDFF02258",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -100,7 +100,7 @@
 		"Id": 33330012,
 		"Address": "0xDFF0225C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -108,7 +108,7 @@
 		"Id": 33330013,
 		"Address": "0xDFF02260",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -116,7 +116,7 @@
 		"Id": 33330014,
 		"Address": "0xDFF02264",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -124,7 +124,7 @@
 		"Id": 33330015,
 		"Address": "0xDFF02268",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -132,7 +132,7 @@
 		"Id": 33330016,
 		"Address": "0xDFF0226C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -140,7 +140,7 @@
 		"Id": 33330017,
 		"Address": "0xDFF02270",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -148,7 +148,7 @@
 		"Id": 33330018,
 		"Address": "0xDFF02274",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -156,7 +156,7 @@
 		"Id": 33330019,
 		"Address": "0xDFF02278",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -164,7 +164,7 @@
 		"Id": 33330020,
 		"Address": "0xDFF0227C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -172,7 +172,7 @@
 		"Id": 33330021,
 		"Address": "0xDFF02280",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -180,7 +180,7 @@
 		"Id": 33330022,
 		"Address": "0xDFF02284",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -188,7 +188,7 @@
 		"Id": 33330023,
 		"Address": "0xDFF02288",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -196,7 +196,7 @@
 		"Id": 33330024,
 		"Address": "0xDFF0228C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -204,7 +204,7 @@
 		"Id": 33330025,
 		"Address": "0xDFF02290",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -212,7 +212,7 @@
 		"Id": 33330026,
 		"Address": "0xDFF02294",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -220,7 +220,7 @@
 		"Id": 33330027,
 		"Address": "0xDFF02298",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -228,7 +228,7 @@
 		"Id": 33330028,
 		"Address": "0xDFF0229C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -236,7 +236,7 @@
 		"Id": 33330029,
 		"Address": "0xDFF022A0",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -244,7 +244,7 @@
 		"Id": 33330030,
 		"Address": "0xDFF022A4",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -252,7 +252,7 @@
 		"Id": 33330031,
 		"Address": "0xDFF022A8",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -260,7 +260,7 @@
 		"Id": 33330032,
 		"Address": "0xDFF022AC",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -268,7 +268,7 @@
 		"Id": 33330033,
 		"Address": "0xDFF022B0",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -276,7 +276,7 @@
 		"Id": 33330034,
 		"Address": "0xDFF022B4",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -284,7 +284,7 @@
 		"Id": 33330035,
 		"Address": "0xDFF022B8",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -292,7 +292,7 @@
 		"Id": 33330036,
 		"Address": "0xDFF022BC",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -300,7 +300,7 @@
 		"Id": 33330037,
 		"Address": "0xDFF022C0",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -308,7 +308,7 @@
 		"Id": 33330038,
 		"Address": "0xDFF022C4",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -316,7 +316,7 @@
 		"Id": 33330039,
 		"Address": "0xDFF022C8",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -324,7 +324,7 @@
 		"Id": 33330040,
 		"Address": "0xDFF022CC",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -332,7 +332,7 @@
 		"Id": 33330041,
 		"Address": "0xDFF022D0",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -340,7 +340,7 @@
 		"Id": 33330042,
 		"Address": "0xDFF022D4",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -348,7 +348,7 @@
 		"Id": 33330043,
 		"Address": "0xDFF022D8",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -356,7 +356,7 @@
 		"Id": 33330044,
 		"Address": "0xDFF022DC",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -364,7 +364,7 @@
 		"Id": 33330045,
 		"Address": "0xDFF022E0",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -372,7 +372,7 @@
 		"Id": 33330046,
 		"Address": "0xDFF022E4",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -380,7 +380,7 @@
 		"Id": 33330047,
 		"Address": "0xDFF022E8",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -388,7 +388,7 @@
 		"Id": 33330048,
 		"Address": "0xDFF022EC",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -396,7 +396,7 @@
 		"Id": 33330049,
 		"Address": "0xDFF022F0",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -404,7 +404,7 @@
 		"Id": 33330050,
 		"Address": "0xDFF022F4",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -412,7 +412,7 @@
 		"Id": 33330051,
 		"Address": "0xDFF022F8",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -420,7 +420,7 @@
 		"Id": 33330052,
 		"Address": "0xDFF022FC",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -428,7 +428,7 @@
 		"Id": 33330053,
 		"Address": "0xDFF02300",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -436,7 +436,7 @@
 		"Id": 33330054,
 		"Address": "0xDFF02304",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -444,7 +444,7 @@
 		"Id": 33330055,
 		"Address": "0xDFF02308",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -452,7 +452,7 @@
 		"Id": 33330056,
 		"Address": "0xDFF0230C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -460,7 +460,7 @@
 		"Id": 33330057,
 		"Address": "0xDFF02310",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -468,7 +468,7 @@
 		"Id": 33330058,
 		"Address": "0xDFF02314",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -476,7 +476,7 @@
 		"Id": 33330059,
 		"Address": "0xDFF02318",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -484,7 +484,7 @@
 		"Id": 33330060,
 		"Address": "0xDFF0231C",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -492,7 +492,7 @@
 		"Id": 33330061,
 		"Address": "0xDFF02320",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	},
 	{
@@ -500,7 +500,7 @@
 		"Id": 33330062,
 		"Address": "0xDFF02324",
 		"CheckType": 1,
-		"CheckValue": "0",
+		"CheckValue": "1",
 		"CompareType": 1
 	}
 ]

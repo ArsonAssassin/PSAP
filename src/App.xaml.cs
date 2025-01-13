@@ -63,7 +63,7 @@ namespace PSAP
             //AllItems = Helpers.GetAllItems();
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
-            await Client.Connect(e.Host, "Pokemon Snap 64");
+            await Client.Connect(e.Host, "Pokemon Snap");
 
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
