@@ -12,6 +12,7 @@ class PokemonSnapLocationCategory(IntEnum):
 
 
 class PokemonSnapLocationData(NamedTuple):
+    id: int
     name: str
     default_item: str
     category: PokemonSnapLocationCategory
@@ -33,23 +34,22 @@ class PokemonSnapLocation(Location):
         super().__init__(player, name, address, parent)
         self.default_item_name = default_item_name
         self.category = category
+        self.id = id
 
     @staticmethod
     def get_name_to_id() -> dict:
-        base_id = 690000
+        base_id = 33330000
         table_offset = 1000
 
         table_order = [
-            "Photos",
+            "Start Game", "Beach", "Tunnel", "Volcano", "River", "Cave", "Valley", "Rainbow Cloud", "Bulbasaur", "Pikachu", "Zubat", "Magikarp"
         ]
 
         output = {}
         for i, region_name in enumerate(table_order):
             if len(location_tables[region_name]) > table_offset:
                 raise Exception("A location table has {} entries, that is more than {} entries (table #{})".format(len(location_tables[region_name]), table_offset, i))
-
-            output.update({location_data.name: id for id, location_data in enumerate(location_tables[region_name], base_id + (table_offset * i))})
-
+            output.update({location_data.name: location_data.id for location_data in location_tables[region_name]})
         return output
 
     def place_locked_item(self, item: PokemonSnapItem):
@@ -58,72 +58,94 @@ class PokemonSnapLocation(Location):
         item.location = self
 
 location_tables = {
-    "Photos": [
-    PokemonSnapLocationData("Bulbasaur", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Charmander", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Charmeleon", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Charizard", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Squirtle", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Metapod", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Butterfree", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Kakuna", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Pidgey", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Pikachu", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Sandshrew", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Sandslash", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Vulpix", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Jigglypuff", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Zubat", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Vileplume", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Diglett", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Dugtrio", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Meowth", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Psyduck", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Mankey", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Growlithe", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Arcanine", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Poliwag", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Weepinbell", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Victreebel", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Geodude", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Graveler", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Rapidash", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Slowpoke", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Slowbro", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Magnemite", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Magneton", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Doduo", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Grimer", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Muk", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Shellder", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Cloyster", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Haunter", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Electrode", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Koffing", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Chansey", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Kangaskhan", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Goldeen", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Staryu", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Starmie", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Scyther", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Jynx", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Electabuzz", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Magmar", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Magikarp", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Gyarados", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Lapras", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Ditto", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Eevee", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Porygon", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Snorlax", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Articuno", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Zapdos", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Moltres", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Dratini", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Dragonite", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
-    PokemonSnapLocationData("Mew", "Point Modifier", PokemonSnapLocationCategory.PHOTO)
+    "Start Game": [
+    PokemonSnapLocationData(33339999, "Start Area", "Point Modifier", PokemonSnapLocationCategory.MISC),
     ],
-
+    "Beach":[
+    PokemonSnapLocationData(33330006, "Butterfree", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330008, "Pidgey", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330018, "Meowth", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330033, "Doduo", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330041, "Chansey", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330042, "Kangaskhan", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330046, "Scyther", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330052, "Lapras", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330054, "Eevee", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330056, "Snorlax", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Tunnel": [    
+    PokemonSnapLocationData(33330007, "Kakuna", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330016, "Diglett", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330017, "Dugtrio", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330031, "Magnemite", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330032, "Magneton", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330038, "Haunter", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330039, "Electrode", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330048, "Electabuzz", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330058, "Zapdos", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Volcano": [
+    PokemonSnapLocationData(33330001, "Charmander", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330002, "Charmeleon", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330003, "Charizard", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330012, "Vulpix", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330021, "Growlithe", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330022, "Arcanine", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330028, "Rapidash", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330049, "Magmar", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330059, "Moltres", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "River": [
+    PokemonSnapLocationData(33330005, "Metapod", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330015, "Vileplume", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330019, "Psyduck", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330023, "Poliwag", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330029, "Slowpoke", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330030, "Slowbro", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330036, "Shellder", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330037, "Cloyster", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330040, "Koffing", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330055, "Porygon", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Cave": [
+    PokemonSnapLocationData(33330013, "Jigglypuff", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330024, "Weepinbell", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330025, "Victreebel", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330034, "Grimer", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330035, "Muk", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330047, "Jynx", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330053, "Ditto", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330057, "Articuno", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Valley": [
+    PokemonSnapLocationData(33330004, "Squirtle", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330010, "Sandshrew", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330011, "Sandslash", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330020, "Mankey", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330026, "Geodude", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330027, "Graveler", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330043, "Goldeen", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330044, "Staryu", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330045, "Starmie", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330051, "Gyarados", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330060, "Dratini", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    PokemonSnapLocationData(33330061, "Dragonite", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Rainbow Cloud": [
+    PokemonSnapLocationData(33330062, "Mew", "Point Modifier", PokemonSnapLocationCategory.PHOTO)
+    ],
+    "Bulbasaur" : [
+    PokemonSnapLocationData(33330000, "Bulbasaur", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Pikachu": [
+    PokemonSnapLocationData(33330009, "Pikachu", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Zubat": [
+    PokemonSnapLocationData(33330014, "Zubat", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ],
+    "Magikarp": [
+    PokemonSnapLocationData(33330050, "Magikarp", "Point Modifier", PokemonSnapLocationCategory.PHOTO),
+    ]
 }
 
 location_dictionary: Dict[str, PokemonSnapLocationData] = {}
