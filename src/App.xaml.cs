@@ -3,13 +3,15 @@ using Archipelago.Core.MauiGUI;
 using Archipelago.Core.MauiGUI.Models;
 using Archipelago.Core.MauiGUI.ViewModels;
 using Archipelago.Core.Models;
+using Archipelago.Core.Util;
 using Archipelago.MultiClient.Net.MessageLog.Messages;
+using Microsoft.UI.Xaml;
 using Newtonsoft.Json;
 using Serilog;
 
 namespace PSAP
 {
-    public partial class App : Application
+    public partial class App : Microsoft.Maui.Controls.Application
     {
         static MainPageViewModel Context;
         public static ArchipelagoClient Client { get; set; }
@@ -60,7 +62,7 @@ namespace PSAP
 
             Client = new ArchipelagoClient(client);
 
-            //AllItems = Helpers.GetAllItems();
+            AllItems = Helpers.GetAllItems();
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
             await Client.Connect(e.Host, "Pokemon Snap");
@@ -72,7 +74,8 @@ namespace PSAP
 
             var photoLocations = Helpers.GetPhotographScoreLocations();
             Client.MonitorLocations(photoLocations);
-
+            //SetCameraRoll(5);
+            SetupToolAddresses();
             Context.ConnectButtonEnabled = true;
         }
 
@@ -86,7 +89,7 @@ namespace PSAP
             });
             lock (_lockObject)
             {
-                Application.Current.Dispatcher.DispatchAsync(() =>
+                Microsoft.Maui.Controls.Application.Current.Dispatcher.DispatchAsync(() =>
                 {
                     Context.ItemList.Add(messageToLog);
                 });
@@ -106,6 +109,81 @@ namespace PSAP
             var itemId = e.Item.Id;
             var itemToReceive = AllItems.FirstOrDefault(x => x.Id == itemId);
 
+            if (itemToReceive.Type == Enums.ItemType.Tool)
+            {
+                EnableTool(itemToReceive);
+            }
+            else if (itemToReceive.Type == Enums.ItemType.Area)
+            {
+                SetUnlockedRoutes();
+            }
+        }
+        private static void SetUnlockedRoutes()
+        {
+            var routeNames = new List<Tuple<string, byte, uint>>() { new Tuple<string, byte, uint>("Beach", 0x06, 0x80195918), new Tuple<string, byte, uint>("Tunnel", 0x07, 0x80195964), new Tuple<string, byte, uint>("Volcano", 0x08, 0x80195A60), new Tuple<string, byte, uint>("River", 0x09, 0x80195A1C), new Tuple<string, byte, uint>("Cave", 0x0A, 0x801959BC), new Tuple<string, byte, uint>("Valley", 0x0B, 0x80195AA8), new Tuple<string, byte, uint>("Rainbow Cloud", 0x0C, 0x80195AFC) };
+            var routes = Client.GameState.ReceivedItems.Where(x => routeNames.Any(y => y.Item1.Contains(x.Name)));
+            var offset = 0;
+            foreach (var route in routeNames)
+            {
+                if (routes.Any(x => x.Name.Contains(route.Item1)))
+                {
+                    //Set menu item
+                    Memory.WriteByte((ulong)(Addresses.Project64Offset + Addresses.RouteTable + offset), route.Item2);
+                    offset++;
+                    //set menu text
+                    Memory.Write((ulong)(Addresses.Project64Offset + Addresses.RouteTable + offset), route.Item3);
+                    offset +=7;
+                }
+            }
+            //Add return button
+            Memory.WriteByte((ulong)(Addresses.Project64Offset + Addresses.RouteTable + offset), 0x05);
+            offset++;
+            Memory.Write((ulong)(Addresses.Project64Offset + Addresses.RouteTable + offset), 0x80195B48);            
+            offset += 7;
+            //Terminate Menu
+            Memory.WriteByte((ulong)(Addresses.Project64Offset + Addresses.RouteTable + offset), 0x23);
+            offset++;
+            Memory.Write((ulong)(Addresses.Project64Offset + Addresses.RouteTable + offset), 0x00000000);
+            offset += 7;
+        }
+        private static void SetupToolAddresses()
+        {
+            Memory.Write(Addresses.Project64Offset + 0x00350A54, Addresses.Project64Offset + 0x00980000);
+            Memory.Write(Addresses.Project64Offset + 0x003509F0, Addresses.Project64Offset + 0x008C0001);
+            Memory.Write(Addresses.Project64Offset + 0x00350984, Addresses.Project64Offset + 0x00980002);
+            Memory.Write(Addresses.Project64Offset + 0x003AE51F, 0x04);
+            Memory.WriteBit(Addresses.Project64Offset + 0x000C2226, 3, true);
+        }
+        private void SetCameraRoll(ushort size)
+        {
+
+            Memory.Write(Addresses.Project64Offset + 0x0009CEA8, 0x3C1C800C);
+            Memory.Write(Addresses.Project64Offset + 0x0035E51C, 0x8F8E21FF);
+            Memory.Write(Addresses.Project64Offset + 0x0035E53C, 0x8F8E21FF);
+            Memory.Write(Addresses.Project64Offset + 0x00353828, 0x8F8421FF);
+            Memory.Write(Addresses.Project64Offset + 0x0009CA18, 0x00E4082A);
+
+            Memory.Write(Addresses.Project64Offset + Addresses.CameraRollSize, size);
+        }
+        private static void EnableTool(PokemonSnapItem tool)
+        {
+            switch (tool.Name)
+            {
+                case ("Apple Unlocked"):
+                    Memory.Write(Addresses.Project64Offset + Addresses.Apple, 0x01);
+                    break;
+                case ("Pester Ball Unlocked"):
+                    Memory.Write(Addresses.Project64Offset + Addresses.PesterBall, 0x02);
+                    break;
+                case ("Flute Unlocked"):
+                    Memory.Write(Addresses.Project64Offset + Addresses.Flute, 0x03);
+                    break;
+                case ("Speed Boost Unlocked"):
+                    Memory.Write(Addresses.Project64Offset + Addresses.SpeedBoost, 0x24);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(tool));
+            }
         }
         private static void LogHint(LogMessage message)
         {
@@ -122,7 +200,7 @@ namespace PSAP
             }
             lock (_lockObject)
             {
-                Application.Current.Dispatcher.DispatchAsync(() =>
+                Microsoft.Maui.Controls.Application.Current.Dispatcher.DispatchAsync(() =>
                 {
                     Context.HintList.Add(new LogListItem(spans));
                 });
@@ -138,7 +216,7 @@ namespace PSAP
         {
             Log.Logger.Information("Disconnected from Archipelago");
         }
-        protected override Window CreateWindow(IActivationState activationState)
+        protected override Microsoft.Maui.Controls.Window CreateWindow(IActivationState activationState)
         {
             var window = base.CreateWindow(activationState);
             if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)

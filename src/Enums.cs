@@ -12,7 +12,8 @@ namespace PSAP
         {
             Tool = 0,
             Area = 1,
-            Misc = 2
+            Misc = 2,
+            Trash = 3,
         }
     }
 }
