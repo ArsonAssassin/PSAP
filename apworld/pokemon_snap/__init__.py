@@ -72,10 +72,10 @@ class PokemonSnapWorld(World):
         
 
         # Connect Regions
-        def create_connection(from_region: str, to_region: str, rule = None):
+        def create_connection(from_region: str, to_region: str):
             connection = Entrance(self.player, f"{from_region} -> {to_region}", regions[from_region])
             regions[from_region].exits.append(connection)
-            connection.connect(regions[to_region], rule)
+            connection.connect(regions[to_region])
         create_connection("Menu", "Start Game") 
       
         create_connection("Start Game", "Beach") 
